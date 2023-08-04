@@ -20,10 +20,8 @@ print("=========expecting 20=============")
 print(cookie_count)
 
 name = "Rob"
+print(name)
 name = 'Rob'
+print(name)
 # name = `Rob` Python will not like this!
-
-print("""They and was They and was They and was 
-      They and was They and was They and was 
-      They and was They and was They and was 
-      They and was They and was They and was """)
+print(name)
