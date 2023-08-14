@@ -30,6 +30,39 @@ print(f"The length of countriesByPop is: {len(countriesByPop)}.")
 #to the end of this list
 countriesByPop.append('Pakistan')
 print(f"The length of countriesByPop is now: {len(countriesByPop)}.")
+print(countriesByPop)
+print("======================")
+
+#insert method
+#is some code that Python has given us for our lists
+#if you're a list, you have the insert method
+#you can do a_list.insert()
+#we pass insert 2 things, 1. The place to insert, 2. the variable to insert
+countriesByPop.insert(4,"Nigeria")
+print(countriesByPop)
+print("=====================")
+
+#let's say a new country called "pythonmania" came into being
+countriesByPop.insert(0,"Pythonmania")
+print(countriesByPop)
+print("=====================")
+
+
+#pop and remove
+#if you're a list, you have the pop and remove methods
+#pop = remove the specified index from the list
+#we pass the .pop() the index we want to remove
+countriesByPop.pop(0) #this will remove from the list the thing in spot 0 (the first element)
+print(countriesByPop)
+print("=====================")
+
+
+#remove is like pop, but instead of giving it/passing
+#an index, we pass a value
+countriesByPop.append("AI")
+print(countriesByPop)
+countriesByPop.remove("AI") #instead of the index, we give it the value
+print(countriesByPop)
 
 
 animals = ["Dog","Elephant","Cat"]
