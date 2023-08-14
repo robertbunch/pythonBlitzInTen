@@ -19,6 +19,18 @@ print(countriesByPop[3])
 #len() whatever is in the () len will try and find how many items there
 print(f"The length of countriesByPop is: {len(countriesByPop)}.")
 
+#lists have methods!! 
+#what is a method? A method is some code that
+#python has written/built into the language
+#that works on a variable/data type/data structure (class/object)
+
+#the append method belongs to all lists
+#that means if you are a list, you can run .append()
+#whatever is inside of the () is what you will add
+#to the end of this list
+countriesByPop.append('Pakistan')
+print(f"The length of countriesByPop is now: {len(countriesByPop)}.")
+
 
 animals = ["Dog","Elephant","Cat"]
 list_of_different_dt = [
