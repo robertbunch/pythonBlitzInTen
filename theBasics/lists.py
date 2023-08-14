@@ -64,8 +64,32 @@ print(countriesByPop)
 countriesByPop.remove("AI") #instead of the index, we give it the value
 print(countriesByPop)
 
+animals = ["Dog","Elephant","Cat","Dog"]
+# print(animals)
+#clear method = this burns everything in the array
+#it is essentially the equiv of starting over from scratch
+#we dont need to pass clear anything
+# animals.clear()
+# animals = []
+# print(animals)
 
-animals = ["Dog","Elephant","Cat"]
+#count method
+#count will "count" the number of times a thing shows up in a list
+number_of_dogs = animals.count("dog")
+print(number_of_dogs)
+
+#sort and reverse
+#sort method = will sort the list in natural order
+#we don't have it anything for natural order, we do pass it something for control (later)
+animals.sort()
+print(animals)
+
+#cannot mix data types
+# list_of_numbers = [1,3,6,4,2,6,"Hello",2,7,81,3,4] THIS WILL BREAK
+list_of_numbers = [1,3,6,4,2,6,2,7,81,3,4]
+list_of_numbers.sort()
+print(list_of_numbers)
+
 list_of_different_dt = [
     "Joe",
     4,
@@ -73,4 +97,7 @@ list_of_different_dt = [
     True,
     [1,2,3]
 ]
+
+#reverse method = switch the order of the indicides exactly
+list_of_different_dt.reverse()
 print(list_of_different_dt)
