@@ -26,10 +26,20 @@ else:
 	print("Hello, there")
 
 #more than 1 if, means they are evaluated separately
-if(name == "Rob"):
-	print("Hello, instructor")
-if(name == "Akash"):
-	print("Hello, assistant!")
-else:
-	print("Hello, there")
+# if(name == "Rob"):
+# 	print("Hello, instructor")
+# if(name == "Akash"):
+# 	print("Hello, assistant!")
+# else:
+# 	print("Hello, there")
 
+x = 3
+if(x == 3 or x == 5):
+	print("You're number is 3 or 5")
+else:
+	print("You're number is NOT 3 or 5")
+
+if(x == 3 and name == "Rob"):
+	print("You have a common name and a common number")
+else:
+	print("Not Rob and 3")
