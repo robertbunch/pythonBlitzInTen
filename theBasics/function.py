@@ -13,6 +13,13 @@
 this_is_a_global = "Testing a global var out"
 print(f"1 global. {this_is_a_global}")
 def calc(operation,x,y):
+    # if you want to use a global variable inside a funciton
+    # you can. Unless... you want to change its value.
+    #to do that, you need to put the keyword global
+    #in front of the var name, on its line
+    # print(this_is_a_global) #do NOT use a global and a local in the same function. Just use a different name for the local
+    global this_is_a_global #this line says, we are going to use a variable in the funciton called this_is_a_global, and it is the global version, not my own scoped version
+    this_is_a_global = "I changed a global because I can see it."
     n = 7 #this is a local variable! It cannot be seen outside of this function
     print(f"You have called Calc. You have sent the {operation} operation.")
     if(operation == "Sum"):
@@ -20,9 +27,7 @@ def calc(operation,x,y):
         #then print off x + y
         print(x + y)
         print(f"x + y = {x + y} and if I add n we get {x + y + n} ")
-        print(f"1. inside calc. {this_is_a_global}")
-        this_is_a_global = "It's not anymore!"
-        print(f"2. inside calc. {this_is_a_global}")
+        # print(f"1 inside calc. {this_is_a_global}")
     elif(operation == "Mult"):
         #multiply x * y
         print(x * y)
