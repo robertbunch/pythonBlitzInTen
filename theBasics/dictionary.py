@@ -35,3 +35,19 @@ user_country["population"] = input("What is your country's population? > ")
 print(user_country["population"])
 print(f"Your country is {user_country['name']} and population is {user_country['population']}")
 
+#dictionaries + lists = WOAH.
+countries_by_population = [
+    {
+        "name" : "India",
+        "capital" : "New Delhi",
+    }, #end of index 0
+    {
+        "name" : "China",
+        "capital" : "Beijing",
+    }, #end of index 1
+    {
+        "name" : "United States",
+        "capital" : "Washington D.C."
+    }, #end of index 2
+]
+print(f'The name of the country with the largest population in the world is {countries_by_population[0]["name"]}. The capital is {countries_by_population[0]["capital"]}')
