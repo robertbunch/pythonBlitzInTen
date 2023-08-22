@@ -56,24 +56,10 @@ print(f'The name of the country with the largest population in the world is {cou
 car = {
     "make" : "Tesla",
     "model" : "S",
-    "range" : "250 miles"
+    "range" : "250 miles",
 }
+
 car["country_of_origin"] = "United States"
 
 for key in car:
-    #call the value of the key in a loop through 
-    #a dictionary is "key"
-    #in a dictionary loop, we can grab
-    #a variable key by removing the ""
-    print(f"Key: {key} value: {car[key]}")
-
-# dictionaries + lists + loops = !!!!!WOAH!!!!!
-for country in countries_by_population:
-    #in a block of code (loop)... indentation matters!
-    #country = a dictionary inside our list
-    country_name = country["name"]
-    country_capital = country["capital"]
-    print(f"Country: {country_name} has capital {country_capital}")
-
-#often times you will get data from a database
-#in the form of a list of dictionaries
+    print(f"{key}:{car[key]}")
