@@ -67,4 +67,13 @@ for key in car:
     #a variable key by removing the ""
     print(f"Key: {key} value: {car[key]}")
 
+# dictionaries + lists + loops = !!!!!WOAH!!!!!
+for country in countries_by_population:
+    #in a block of code (loop)... indentation matters!
+    #country = a dictionary inside our list
+    country_name = country["name"]
+    country_capital = country["capital"]
+    print(f"Country: {country_name} has capital {country_capital}")
 
+#often times you will get data from a database
+#in the form of a list of dictionaries
