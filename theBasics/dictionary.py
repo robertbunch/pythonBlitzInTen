@@ -64,3 +64,45 @@ car["country_of_origin"] = "United States"
 #when i loop through a dict, I use the variable "key"
 for key in car:
     print(f"{key} : {car[key]}")
+
+#dictionaries + loops + lists = !!!!WOAH!!!!
+#a LOT of times this is how data comes from a database
+for country in countries_by_population:
+    #in a for loop. indentation matters!
+    #country = a dictionary inside of the list countries_by_population
+    country_name = country["name"]
+    print(f"The country {country_name} has a capital of {country['capital']}")
+
+#in our game, we will have an enemies list
+#each enemy will be a dictionary
+    #hp, attack, defense, name
+
+#pulling back a list of orders
+#each order will be a dictionary
+    #invoice #, customer_name, customer_address
+
+customer_invoices = [
+    {
+        "name" : "company1",
+        "total" : 123.34
+    },
+    {
+        "name" : "company1",
+        "total" : 223.14
+    },
+    {
+        "name" : "company2",
+        "total" : 122.63
+    },
+    {
+        "name" : "company1",
+        "total" : 13.34
+    },
+]
+
+customer1Total = 0
+for invoice in customer_invoices:
+    #deal with each invoice as it comes
+    if(invoice["name"] == "company1"):
+        customer1Total += invoice["total"]
+print(f"Customer1 has a total of {customer1Total}")
