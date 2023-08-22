@@ -61,5 +61,6 @@ car = {
 
 car["country_of_origin"] = "United States"
 
+#when i loop through a dict, I use the variable "key"
 for key in car:
-    print(f"{key}:{car[key]}")
+    print(f"{key} : {car[key]}")
