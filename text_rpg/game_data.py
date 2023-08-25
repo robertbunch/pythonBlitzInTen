@@ -12,6 +12,7 @@ the_hero = {
 
 zombie = {
     "name" : "Zombie",
+    "adjective" : "fearsome",
     "hp" : 10,
     "attack_power" : 3,
     "defense" : 0,
@@ -27,6 +28,7 @@ zombie = {
 
 goblin = {
     "name" : "Goblin",
+    "adjective" : "meek",
     "hp" : 8,
     "attack_power" : 4,
     "defense" : 1,
