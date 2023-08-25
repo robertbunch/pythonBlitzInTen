@@ -16,15 +16,51 @@ the_hero = {
     "inventory" : ["health_potion",]
 }
 
+enemies = []
+zombie = {
+    "name" : "Zombie",
+    "hp" : 10,
+    "attack_power" : 3,
+    "defense" : 0,
+    "weapon" : "fist",
+    "xp_drop" : 2, #this is how much xp the bad guy gives the hero when defeated
+    "gold_drop" : 1,
+    "power" : {
+        "name" : "Berzerk",
+        "effect" : "attack_up",
+        "effect_impact" : 5,
+    }
+}
+
+enemies.append(zombie)
+
+main_options = [
+    {
+        "text" : "Fight a monster",
+        "input_key" : "1",
+    },
+    {
+        "text" : "Go to the shop",
+        "input_key" : "2",
+    },
+    {
+        "text" : "Do a dance",
+        "input_key" : "3"
+    },
+    {
+        "text" : "Sleep and adventure another day (exit)",
+        "input_key" : "q"
+    }
+]
+
 #make a boolean that will control our main game loop
 game_on = True
 while(game_on):
     print(f"What would you like to do, {the_hero['name']}?")
-    print(f"1. Fight a monster")
-    print(f"2. Go to the shop")
-    print(f"3. Do a dance")
+    for option in main_options:
+        print(f"{option['input_key']}. {option['text']}")
     action = input(" > ") #this will BLOCK the loop, until the user answer
-    if(action == "3"):
+    if(action == "q"):
         game_on = False
 
 
