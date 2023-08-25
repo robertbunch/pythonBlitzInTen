@@ -40,6 +40,22 @@ def fight():
         elif(battle_action == "5"):
             print("Fight has ended")
             in_fight = False
+    #enemy's turn, if alive   
+        if(enemy_to_fight['hp'] > 0):
+            #enemy is alive. Attack back.
+            #monster_power_hit = take the monster's attack_power - hero's defense
+            #reduce the hero's hp by monster_power_hit
+            monster_power_hit = enemy_to_fight['attack_power'] - game_data.the_hero['defense']
+            game_data.the_hero['hp'] -= monster_power_hit
+        else:
+            #the enemy has no more hp. Fight is won for the hero
+            print(f"Well done, magnificant {game_data.the_hero['name']}, thou hast slain the impudent {enemy_to_fight['name']}.")
+            #the hero won, so grant the hero some gold and xp
+            game_data.the_hero['gold'] += enemy_to_fight['gold_drop']
+            game_data.the_hero['xp'] += enemy_to_fight['xp_drop']
+            print(f"Thou has gained {enemy_to_fight['gold_drop']} gold and {enemy_to_fight['xp_drop']} experience.")
+            print(f"Thou now hasts {game_data.the_hero['gold']} gold and {game_data.the_hero['xp']} experience.")
+            in_fight = False #the fight is over! End the loop
 
 #make a boolean that will control our main game loop
 game_on = True
