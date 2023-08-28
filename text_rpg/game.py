@@ -17,7 +17,12 @@ def fight():
     total_enemies = len(game_data.enemies)
     # random_number = random.randint(0,total_enemies-1)
     random_index = random.randint(0,total_enemies-1)
-    enemy_to_fight = game_data.enemies[random_index]
+    #we need to use the copy method, so that we don't change the original
+    enemy_to_fight_og = game_data.enemies[random_index]
+    # print(id(enemy_to_fight_og))
+    # print(id(game_data.enemies[random_index]))
+    enemy_to_fight = enemy_to_fight_og.copy()
+    print(id(enemy_to_fight))
     in_fight = True #boolean that keeps us in the fight loop
     print(f"{game_data.the_hero['name']}, thou hast encountered the {enemy_to_fight['adjective']} {enemy_to_fight['name']}. The battle has begun!")
     while(in_fight):

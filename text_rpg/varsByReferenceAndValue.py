@@ -12,7 +12,13 @@
     #y = x
     #x.append(1) 
     #you have changed y
+    # x = []
+    # y = x.copy() #y and x are totally different. 
 
+#To make a copy that will NOT change the original, you use the 
+# copy method. That will NOT copy the pointer/arrow that the 
+#= sign does, it will make a copy of the value and that will
+#be independent
 
 
 # #id will give us a unique integer to represent that variable
