@@ -5,7 +5,8 @@ the_hero = {
     "gold" : 5, #amount of money the player has to buythings
     "attack_power" : 5,
     "defense" : 2,
-    "hp" : 10,
+    "max_hp" : 10, #this is for reference and will only change when the player levels up
+    "hp" : 10, #this hp mutates as the player is hurt or heals
     "weapon" : "fists",
     "inventory" : ["health_potion",]
 }
