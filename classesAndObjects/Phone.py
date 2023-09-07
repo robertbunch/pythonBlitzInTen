@@ -10,3 +10,5 @@ class Phone():
 
     def call_first_contact(self):   
         print("Calling first contact...")
+    def open_app_store(self):
+        print("Opening the app store...")

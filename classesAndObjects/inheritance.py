@@ -26,3 +26,4 @@ marias_phone = IPhoneX('ATT',['Jose','David'])
 marias_phone.call_first_contact() #Phone
 marias_phone.open_facetime() #IPhone
 marias_phone.run_facial_id() #IPhoneX
+marias_phone.open_app_store() #This is in Phone, BUT is also in IPhone and because IPhone is lower, it uses that one

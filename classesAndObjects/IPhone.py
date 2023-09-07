@@ -13,3 +13,8 @@ class IPhone(Phone):
         super().__init__(self.make,model,carrier,self.os,contacts)
     def open_facetime(self):
         print("Opening Facetime...")
+
+    #overriding = allows us to overrive a method from
+    #a parent/super class
+    def open_app_store(self):
+        print("This is the Apple App Store")

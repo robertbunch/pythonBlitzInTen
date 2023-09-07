@@ -11,3 +11,7 @@ class IPhoneX(IPhone):
     #the same attribute with self, will be used instead of the method
     def run_facial_id(self):
         print("Running facial ID")
+
+    #this would run if enabled for all IPhoneX
+    # def open_app_store(self):
+        # print("This is the Apple App Store for IPhoneX")
