@@ -1,3 +1,8 @@
+# Answer: 233168
+import time
+#create a point in time as our start. Then go...
+start_time = time.time()
+
 # If we list all the natural numbers below 10 that are multiples of 3 or 5, 
 # we get 3, 5, 6,and 9. The sum of these multiples is 23.
 ## natural numbers = non-negative integers. 1-9, integers
@@ -15,3 +20,4 @@ print(sum_total)
 #ridiculous 1 line answer
 x = sum([n for n in range(1,1000) if n % 3 == 0 or n % 5 == 0])
 print(x)
+print(f"--- Number of seconds to solve {time.time() - start_time}")
