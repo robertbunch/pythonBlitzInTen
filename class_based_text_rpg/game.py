@@ -1,5 +1,6 @@
 from Character import Character
 from GameSettings import GameSettings
+from battle_engine_function import battle_engine
 
 game_settings = GameSettings()
 charater_name = input("What is thy name, brave adventurer? > ")
@@ -25,3 +26,8 @@ while(game_on):
     for option in game_settings.main_options:
         print(f"{option['input_key']}. {option['text']}")
     action = input(" > ") #this will BLOCK the loop, until the user answer
+    if(action == "1"):
+        #call the battle engine
+        battle_engine(enemies,the_hero)
+    elif(action == "q"):
+        game_on = False
