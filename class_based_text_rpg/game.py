@@ -9,15 +9,6 @@ the_hero = Character(charater_name, xp = 0, level = 1,
                      defense = 5, max_hp = 10, hp = 10, 
                      weapon = "fists", 
                      inventory = ['health_potion'])
-goblin = Character(character_name="Goblin",xp = 0, level = 1,
-                   gold = 5, attack_power=3, defense = 3,
-                   max_hp=7, hp = 7, weapon="fists",
-                   inventory=[])
-zombie = Character(character_name="Zombie",xp = 0, level = 1,
-                   gold = 5, attack_power=5, defense = 2,
-                   max_hp=7, hp = 9, weapon="fists",
-                   inventory=[])
-enemies = [goblin,zombie]
 
 #make a boolean that will control our main game loop
 game_on = True
@@ -28,6 +19,6 @@ while(game_on):
     action = input(" > ") #this will BLOCK the loop, until the user answer
     if(action == "1"):
         #call the battle engine
-        battle_engine(enemies,the_hero)
+        battle_engine(the_hero)
     elif(action == "q"):
         game_on = False
