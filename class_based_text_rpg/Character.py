@@ -9,5 +9,9 @@ class Character():
         self.hp = hp
         self.weapon = weapon
 
-    def take_damage(self):
-        print("Placeholder for take damage")
+    def take_damage(self,other_char_obj):
+        #hero_power_hit = take the hero's attack_power - monster's defense
+        #reduce the monster's hp by hero_power_hit
+        power_hit = other_char_obj.attack_power - self.defense
+        self.hp -= power_hit
+        return power_hit

@@ -36,12 +36,9 @@ def battle_engine(the_hero):
         battle_action = input("What would you like to do? > ") #this is the chioce the player will make in the fight
     #hero's turn
         if(battle_action == "1"):
-            #user has chosen to attack
-            #hero_power_hit = take the hero's attack_power - monster's defense
-            #reduce the monster's hp by hero_power_hit
-            hero_power_hit = the_hero.attack_power - enemy_to_fight.defense
-            enemy_to_fight.hp -= hero_power_hit
-            print(f"Thou hast struck thine enemy with {the_hero.weapon} for {hero_power_hit} damage.")
+            #the_hero has chosen to attack
+            power_hit = enemy_to_fight.take_damage(the_hero)
+            print(f"Thou hast struck thine enemy with {the_hero.weapon} for {power_hit} damage.")
         elif(battle_action == "2"):
             #this means, players wants to drink a potion
             if(health_potion_count > 0):
@@ -61,11 +58,8 @@ def battle_engine(the_hero):
     #enemy's turn, if alive   
         if(enemy_to_fight.hp > 0):
             #enemy is alive. Attack back.
-            #monster_power_hit = take the monster's attack_power - hero's defense
-            #reduce the hero's hp by monster_power_hit
-            monster_power_hit = (enemy_to_fight.attack_power * enemy_attack_modifier)- the_hero.defense
-            print(f"Thine enemy {enemy_to_fight.character_name} has struck thee with {enemy_to_fight.weapon} for {monster_power_hit} damage.")
-            the_hero.hp -= monster_power_hit
+            power_hit = the_hero.take_damage(enemy_to_fight)
+            print(f"Thine enemy {enemy_to_fight.character_name} has struck thee with {enemy_to_fight.weapon} for {power_hit} damage.")
         else:
             #the enemy has no more hp. Fight is won for the hero
             print(f"Well done, magnificant {the_hero.character_name}, thou hast slain the impudent {enemy_to_fight.character_name}.")
