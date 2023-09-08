@@ -24,13 +24,12 @@ def battle_engine(the_hero):
     in_fight = True #boolean that keeps us in the fight loop
     print(f"{the_hero.character_name}, thou hast encountered the {enemy_to_fight.character_name}. The battle has begun!")
     while(in_fight):
-        enemy_attack_modifier = 1 #by default the enemy does no more or less damage
         print(f"Thou hast {the_hero.hp} health points. Thine enemy has {enemy_to_fight.hp} health points.")
         #this loop is the back and forth during a battle. Until someone wins
         print(f"1. Attack with thine {the_hero.weapon}.")
         health_potion_count = the_hero.inventory.count("health_potion")
         print(f"2. Drink the health potion. Thou hast {health_potion_count} potions.")
-        print(f"3.Defend and heal.")
+        print(f"3. Defend and heal.")
         print(f"4. Do a little dance.")
         print(f"5. Flee for your miserable, pitiful life.")
         battle_action = input("What would you like to do? > ") #this is the chioce the player will make in the fight
@@ -51,7 +50,11 @@ def battle_engine(the_hero):
             else:
                 #player had no potions. Make the enemy take advantage
                 print(f"Thou fool. Thou hast no potions of health, thine enemy has taken advatange of thine blunder")
-                enemy_attack_modifier = 2
+                enemy_to_fight.damage_modifier = 2
+                the_hero.defense_modifier = 1 #reset the defense mod for the hero to 1
+        elif(battle_action == "3"):
+            #player has chosen to heal and defend
+            the_hero.defense_modifier = 2
         elif(battle_action == "5"):
             print("Fight has ended")
             in_fight = False
