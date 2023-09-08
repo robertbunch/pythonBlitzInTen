@@ -1,17 +1,16 @@
 import random
-from Character import Character
+# from Character import Character
+from Monster import Monster #Monster is a subclass of Character
 
 #if the player decides to fight, this function will run
 def battle_engine(the_hero):
     #inside of battle_engine, make some enemies
-    goblin = Character(character_name="Goblin",xp = 0, level = 1,
-                    gold = 5, attack_power=3, defense = 3,
-                    max_hp=7, hp = 7, weapon="fists",
-                    inventory=[])
-    zombie = Character(character_name="Zombie",xp = 0, level = 1,
-                    gold = 5, attack_power=5, defense = 2,
-                    max_hp=7, hp = 9, weapon="fists",
-                    inventory=[])
+    goblin = Monster(character_name="Goblin",xp_drop = 1,
+                    gold_drop = 5, attack_power=3, defense = 3,
+                    max_hp=7, hp = 7, weapon="fists",)
+    zombie = Monster(character_name="Zombie",xp_drop = 2,
+                    gold_drop = 5, attack_power=5, defense = 2,
+                    max_hp=7, hp = 9, weapon="fists",)
     enemies = [goblin,zombie]
 
     #randint is a method from random. It takes 2 args:
@@ -73,6 +72,7 @@ def battle_engine(the_hero):
             #the hero won, so grant the hero some gold and xp
             the_hero.gold += enemy_to_fight.gold_drop
             the_hero.xp += enemy_to_fight.xp_drop
+            print(enemy_to_fight.xp_drop)
             print(f"Thou has gained {enemy_to_fight.gold_drop} gold and {enemy_to_fight.xp_drop} experience.")
             print(f"Thou now hasts {the_hero.gold} gold and {the_hero.xp} experience.")
             in_fight = False #the fight is over! End the loop

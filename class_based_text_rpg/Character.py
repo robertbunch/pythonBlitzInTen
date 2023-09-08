@@ -8,3 +8,6 @@ class Character():
         self.max_hp = max_hp
         self.hp = hp
         self.weapon = weapon
+
+    def take_damage(self):
+        print("Placeholder for take damage")

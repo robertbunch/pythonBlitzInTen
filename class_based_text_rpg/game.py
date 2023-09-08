@@ -1,12 +1,13 @@
-from Character import Character
+# from Character import Character
+from Hero import Hero #Hero is a subclass of Character
 from GameSettings import GameSettings
 from battle_engine_function import battle_engine
 
 game_settings = GameSettings()
 charater_name = input("What is thy name, brave adventurer? > ")
-the_hero = Character(charater_name, xp = 0, level = 1, 
+the_hero = Hero(charater_name, xp = 0, level = 1, 
                      gold = 5, attack_power = 10,
-                     defense = 5, max_hp = 10, hp = 10, 
+                     defense = 2, max_hp = 10, hp = 10, 
                      weapon = "fists", 
                      inventory = ['health_potion'])
 
