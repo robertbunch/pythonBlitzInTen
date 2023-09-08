@@ -10,6 +10,12 @@ class Hero(Character):
         #we only pass the things the Character class init method needs
         super().__init__(character_name,attack_power,defense,max_hp,hp,weapon)
 
-    def check_level_up(self):
-        print("Check to see if hero has leveled up")
+    def battle_victory(self,vanquished_foe):
+        # print("Check to see if hero has leveled up")
+        print(f"Well done, magnificant {self.character_name}, thou hast slain the impudent {vanquished_foe.character_name}.")
+        #the hero won, so grant the hero some gold and xp
+        self.gold += vanquished_foe.gold_drop
+        self.xp += vanquished_foe.xp_drop
+        print(f"Thou has gained {vanquished_foe.gold_drop} gold and {vanquished_foe.xp_drop} experience.")
+        print(f"Thou now hasts total of {self.gold} gold and {self.xp} experience.")
         

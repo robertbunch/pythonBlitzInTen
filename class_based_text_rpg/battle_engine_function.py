@@ -65,11 +65,5 @@ def battle_engine(the_hero):
             print(f"Thine enemy {enemy_to_fight.character_name} has struck thee with {enemy_to_fight.weapon} for {power_hit} damage.")
         else:
             #the enemy has no more hp. Fight is won for the hero
-            print(f"Well done, magnificant {the_hero.character_name}, thou hast slain the impudent {enemy_to_fight.character_name}.")
-            #the hero won, so grant the hero some gold and xp
-            the_hero.gold += enemy_to_fight.gold_drop
-            the_hero.xp += enemy_to_fight.xp_drop
-            print(enemy_to_fight.xp_drop)
-            print(f"Thou has gained {enemy_to_fight.gold_drop} gold and {enemy_to_fight.xp_drop} experience.")
-            print(f"Thou now hasts {the_hero.gold} gold and {the_hero.xp} experience.")
+            the_hero.battle_victory(enemy_to_fight)
             in_fight = False #the fight is over! End the loop
