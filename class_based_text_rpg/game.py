@@ -9,7 +9,8 @@ the_hero = Hero(charater_name, xp = 0, level = 1,
                      gold = 5, attack_power = 10,
                      defense = 2, max_hp = 10, hp = 10, 
                      weapon = "fists", 
-                     inventory = ['health_potion'])
+                     inventory = ['health_potion'],
+                     game_settings = game_settings)
 
 #make a boolean that will control our main game loop
 game_on = True
