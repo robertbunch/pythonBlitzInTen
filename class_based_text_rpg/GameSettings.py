@@ -43,3 +43,15 @@ class GameSettings():
                 "hp_increase" : 10,
             }, #4               
         ]        
+        self.colors = {
+            #Colors for Python terminal
+            "red" :  "\033[1;31;40m",
+            "redB" :  "\033[0;31;47m",
+            "white" :  "\033[0;37;40m",
+            "blue" :  "\033[1;34;40m",
+            "blueB" :  "\033[0;34;47m",
+            "yellow" :  "\033[1;33;40m",
+            "green" :  "\033[1;32;40m",
+            "greenB" :  "\033[0;32;47m",
+            "normal" : "\033[0;37;40m",
+        }   

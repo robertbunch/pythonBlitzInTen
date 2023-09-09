@@ -15,7 +15,7 @@ class Hero(Character):
 
     def battle_victory(self,vanquished_foe):
         # print("Check to see if hero has leveled up")
-        print(f"Well done, magnificant {self.character_name}, thou hast slain the impudent {vanquished_foe.character_name}.")
+        print(f"Well done, magnificant {self.character_name}, {self.game_settings.colors['red']}thou hast slain the impudent {vanquished_foe.character_name}{self.game_settings.colors['normal']}.")
         #the hero won, so grant the hero some gold and xp
         self.gold += vanquished_foe.gold_drop
         self.xp += vanquished_foe.xp_drop
@@ -31,5 +31,5 @@ class Hero(Character):
             self.max_hp += new_level_data["hp_increase"]
             #reset current hp to max_hp
             self.hp = self.max_hp
-            print(f"Well done, brave {self.character_name}! Thou has reached a new level of {self.level}.")
+            print(f"Well done, brave {self.character_name}! {self.game_settings.colors['green']}Thou has reached a new level of {self.level}{self.game_settings.colors['normal']}.")
             print(f"Thine hp is now {self.hp}, thine attack is now {self.attack_power} and thine defense is {self.defense}.")
