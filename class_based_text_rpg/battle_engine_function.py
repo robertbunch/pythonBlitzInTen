@@ -1,6 +1,8 @@
 import random
 # from Character import Character
 from Monster import Monster #Monster is a subclass of Character
+import time #part of core
+import os #os is part of core, stands for operating system
 
 #if the player decides to fight, this function will run
 def battle_engine(the_hero):
@@ -12,6 +14,14 @@ def battle_engine(the_hero):
                     gold_drop = 5, attack_power=5, defense = 2,
                     max_hp=7, hp = 9, weapon="fists",)
     enemies = [goblin,zombie]
+
+    # os.system('cls') #this is for windows
+    os.system('clear') #this is for Mac
+    #time.sleep(x) will force the program to stop for x seconds
+    print(f"Thou hast entered the forest. Danger creeps everywhere...")
+    time.sleep(2) #pause for 2 seconds
+
+    # os.system("say Hooray, Hero!")
 
     #randint is a method from random. It takes 2 args:
     #1. integer to start at
