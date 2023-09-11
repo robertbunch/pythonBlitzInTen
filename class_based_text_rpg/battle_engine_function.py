@@ -3,17 +3,19 @@ import random
 from Monster import Monster #Monster is a subclass of Character
 import time #part of core
 import os #os is part of core, stands for operating system
+from Troll import Troll
 
 #if the player decides to fight, this function will run
 def battle_engine(the_hero):
     #inside of battle_engine, make some enemies
+    troll = Troll()
     goblin = Monster(character_name="Goblin",xp_drop = 1,
                     gold_drop = 5, attack_power=3, defense = 3,
                     max_hp=7, hp = 7, weapon="fists",)
     zombie = Monster(character_name="Zombie",xp_drop = 2,
                     gold_drop = 5, attack_power=5, defense = 2,
                     max_hp=7, hp = 9, weapon="fists",)
-    enemies = [goblin,zombie]
+    enemies = [troll]
 
     # os.system('cls') #this is for windows
     os.system('clear') #this is for Mac
