@@ -65,6 +65,8 @@ class Shop():
                     hero.inventory.append('health_potion')
                 elif(item_to_buy['py_name'] == "magic_sword"):
                     hero.set_weapon(item_to_buy['item_name'])
+                elif(item_to_buy['py_name'] == "magic_armor"):
+                    hero.set_armor(item_to_buy['item_name'])
             else:  
                 #the user does NOT have enough gold
                 annoy_tries += 1 #each time the player tries to buy something they do not have the money for, increase annoy_tries

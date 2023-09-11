@@ -37,4 +37,8 @@ class Hero(Character):
         self.weapon = weapon
         if(weapon == "Magic Sword"):
             self.attack_power = self.attack_power * 1.15
-            
+            print(f"{self.game_settings.colors['green']}Thou grasp the Magic Sword and power flows through thine body.{self.game_settings.colors['normal']}")
+    def set_armor(self, armor):
+        if(armor == "Magic Armor"):
+            self.defense = self.defense * 1.15
+            print(f"{self.game_settings.colors['green']}Thou placeth the Magic Armor on thine body and power flows through you.{self.game_settings.colors['normal']}")
