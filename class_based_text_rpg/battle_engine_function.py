@@ -75,6 +75,11 @@ def battle_engine(the_hero):
             #enemy is alive. Attack back.
             power_hit = the_hero.take_damage(enemy_to_fight)
             print(f"Thine enemy {enemy_to_fight.character_name} has struck thee with {enemy_to_fight.weapon} for {power_hit} damage.")
+            #check to see if hero has hp > 0
+            #if not... break out of the fight loop
+            if(the_hero.hp <= 0):
+                in_fight = False
+                print(f"Thou hast been slain by {enemy_to_fight.character_name}")
         else:
             #the enemy has no more hp. Fight is won for the hero
             the_hero.battle_victory(enemy_to_fight)

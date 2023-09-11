@@ -24,6 +24,10 @@ while(game_on):
     if(action == "1"):
         #call the battle engine
         battle_engine(the_hero)
+        if(the_hero.hp <= 0):
+            print(f"All hope is lost...")
+            game_on = False
+            #game over :(
     elif(action == "2"):
         #player has chosen to enter the shop
         shop.display(the_hero,game_settings) #run the display method on our shop object. Pass the hero object, and the game_settings object
