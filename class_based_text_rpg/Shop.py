@@ -11,7 +11,7 @@ class Shop():
                 "item_name" : "Magic Sword",
                 "py_name" : "magic_sword",
                 "desc" : "Attack Power +15%",
-                "cost" : 50,
+                "cost" : 1,
             },
             {
                 "item_name" : "Magic Armor",
@@ -54,11 +54,18 @@ class Shop():
             index_in_items = int(shop_action) - 1
             #get the item from self.items based on the index
             item_to_buy = self.items[index_in_items]
+            #did the player choose to leave
+            if(item_to_buy['py_name'] == "leave"):
+                keep_shopping = False
             #does the user have the money to buy the item?
-            if(hero.gold >= item_to_buy["cost"]):
+            elif(hero.gold >= item_to_buy["cost"]):
                 #the user has enough gold!
-                print("")
-            else:
+                hero.gold -= item_to_buy["cost"] #reduce the amount of gold the hero has... ie. pay for the time
+                if(item_to_buy['py_name'] == "health_potion"):
+                    hero.inventory.append('health_potion')
+                elif(item_to_buy['py_name'] == "magic_sword"):
+                    hero.set_weapon(item_to_buy['item_name'])
+            else:  
                 #the user does NOT have enough gold
                 annoy_tries += 1 #each time the player tries to buy something they do not have the money for, increase annoy_tries
                 if(annoy_tries == 1):

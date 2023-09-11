@@ -33,3 +33,8 @@ class Hero(Character):
             self.hp = self.max_hp
             print(f"Well done, brave {self.character_name}! {self.game_settings.colors['green']}Thou has reached a new level of {self.level}{self.game_settings.colors['normal']}.")
             print(f"Thine hp is now {self.hp}, thine attack is now {self.attack_power} and thine defense is {self.defense}.")
+    def set_weapon(self,weapon):
+        self.weapon = weapon
+        if(weapon == "Magic Sword"):
+            self.attack_power = self.attack_power * 1.15
+            
