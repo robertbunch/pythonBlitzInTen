@@ -35,12 +35,18 @@ class Shop():
                 "item_name" : "Leave",
                 "py_name" : "leave",
                 "cost" : "",
-                "desc" : "",
+                "desc" : "Leave the shop",
             },
         ]
-    def display(self,hero):
+    def display(self,hero,game_settings):
         #display the shop options to the player
         keep_shopping = True #bool to keep the shop loop running
         while(keep_shopping):
-            print(f"Thou hast entered the shop with {hero.gold} gold.")
+            print(f"Thou hast entered the shop with {game_settings.colors['yellow']}{hero.gold} gold{game_settings.colors['normal']}.")
+            counter = 0
+            for item in self.items:
+                counter += 1 #counter is to give the user the number to push
+                #each item is a {} in self.items
+                print(f"{counter}. {item['item_name']}, {item['cost']} - {item['desc']}")
+            
             keep_shopping = False

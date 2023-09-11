@@ -26,6 +26,6 @@ while(game_on):
         battle_engine(the_hero)
     elif(action == "2"):
         #player has chosen to enter the shop
-        shop.display(the_hero) #run the display method on our shop object
+        shop.display(the_hero,game_settings) #run the display method on our shop object. Pass the hero object, and the game_settings object
     elif(action == "q"):
         game_on = False
