@@ -2,7 +2,9 @@
 from Hero import Hero #Hero is a subclass of Character
 from GameSettings import GameSettings
 from battle_engine_function import battle_engine
+from Shop import Shop
 
+shop = Shop()
 game_settings = GameSettings()
 charater_name = input("What is thy name, brave adventurer? > ")
 the_hero = Hero(charater_name, xp = 0, level = 1, 
@@ -22,5 +24,8 @@ while(game_on):
     if(action == "1"):
         #call the battle engine
         battle_engine(the_hero)
+    elif(action == "2"):
+        #player has chosen to enter the shop
+        shop.display(the_hero) #run the display method on our shop object
     elif(action == "q"):
         game_on = False
