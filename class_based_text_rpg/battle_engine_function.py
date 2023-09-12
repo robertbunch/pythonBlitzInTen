@@ -17,6 +17,8 @@ def battle_engine(the_hero):
     #                 gold_drop = 5, attack_power=5, defense = 2,
     #                 max_hp=7, hp = 9, weapon="fists",)
     enemies = [goblin, zombie, troll]
+    random_list = ([0] * 5) + ([1] * 4) + [2]
+    # [0,0,0,0,0,1,1,1,1,2]
 
     # os.system('cls') #this is for windows
     os.system('clear') #this is for Mac
@@ -31,7 +33,8 @@ def battle_engine(the_hero):
     #2. integer to end at
     total_enemies = len(enemies)
     # random_number = random.randint(0,total_enemies-1)
-    random_index = random.randint(0,total_enemies-1)
+    # random_index = random.randint(0,total_enemies-1)
+    random_index = random.choice(random_list)
     #we need to use the copy method, so that we don't change the original
     enemy_to_fight = enemies[random_index]
     in_fight = True #boolean that keeps us in the fight loop
