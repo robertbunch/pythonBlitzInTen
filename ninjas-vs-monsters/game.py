@@ -1,5 +1,6 @@
 import pygame
 from Background import Background
+from Player import Player
 clock = pygame.time.Clock()
 # print("Pygame successfully imported!")
 pygame.init() #initialize all the pygame stuff
@@ -21,6 +22,6 @@ while(game_on):
             game_on = False
     # screen.fill("red") #fill changes the color of the screen
     background = Background(screen, screen_size)
-
+    player = Player(screen)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF
