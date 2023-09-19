@@ -1,4 +1,5 @@
 import pygame
+from update_screen import update_screen
 from Background import Background
 from Player import Player
 clock = pygame.time.Clock()
@@ -9,6 +10,8 @@ display_info = pygame.display.Info()
 screen_size = (display_info.current_w, display_info.current_h)
 screen = pygame.display.set_mode(screen_size)
 game_on = True #a boolean for our game loop
+background = Background(screen, screen_size)
+player = Player(screen)
 #this is the main game loop... run until quit
 while(game_on):
     #check to see if if any events occured since
@@ -21,7 +24,6 @@ while(game_on):
             print(event)
             game_on = False
     # screen.fill("red") #fill changes the color of the screen
-    background = Background(screen, screen_size)
-    player = Player(screen)
+    update_screen(screen = screen,player = player, background = background)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF

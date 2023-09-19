@@ -2,6 +2,7 @@ import pygame
 
 class Background():
     def __init__(self,screen,screen_size):
+        self.screen = screen
         #grab our image off the hard drive and load it into pygame
         self.background_image = pygame.image.load('./images/background4.png')
         #change the size of the image
@@ -12,6 +13,7 @@ class Background():
         self.background_rect = self.background_image.get_rect()
         # print(background_rect)
 
+    def draw_bg(self,screen):
         #blit = block image transfer
         #blit takes 2 args: 
         #1. what to draw
