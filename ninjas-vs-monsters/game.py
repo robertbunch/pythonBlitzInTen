@@ -18,6 +18,15 @@ while(game_on):
         if(event.type == pygame.QUIT):
             print(event)
             game_on = False
-    screen.fill("red") #fill changes the color of the screen
+    # screen.fill("red") #fill changes the color of the screen
+    #grab our image off the hard drive and load it into pygame
+    background_image = pygame.image.load('./images/background4.png')
+    background_rect = background_image.get_rect()
+    print(background_rect)
+    #blit = block image transfer
+    #blit takes 2 args: 
+    #1. what to draw
+    #2. where to draw it (x,y coords which we get from get_rect)
+    screen.blit(background_image,background_rect)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF
