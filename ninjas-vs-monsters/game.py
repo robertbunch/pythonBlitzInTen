@@ -18,7 +18,7 @@ player = Player(screen)
 while(game_on):
     #run check_events where we have moved all our event logic
     #check_events returns a dictionary, with a "game_on" key
-    event_data = check_events()
+    event_data = check_events(player)
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
