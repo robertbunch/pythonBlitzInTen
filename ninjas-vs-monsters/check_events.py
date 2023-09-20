@@ -32,5 +32,8 @@ def check_events(player):
             elif(event.key == pygame.K_LEFT):
                 # The user pressed the up arrow!  
                 print("User hit the left arrow")   
-                player.x -= 10         
+                player.x -= 10   
+            player.anim_image += 1
+            if(player.anim_image == 10):
+                player.anim_image = 0
     return event_data
