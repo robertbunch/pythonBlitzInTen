@@ -24,6 +24,6 @@ while(game_on):
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
-    update_screen(screen = screen,player = player, background = background, tick = tick)
+    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF

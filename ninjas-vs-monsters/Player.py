@@ -36,25 +36,32 @@ class Player():
         self.image = pygame.transform.scale_by(self.image,.35)
         #get the coords of the image
         self.rect = self.image.get_rect() 
-    def draw_player(self,screen,tick):
+    def draw_player(self,screen,tick,display_info):
         # print(tick)
         #when we draw the player, we can decide
         #where the player should be
-        if(self.should_move_up):
+        if(self.should_move_up and self.y > 0):
             self.y -= 10
-        elif(self.should_move_down):
+        elif(self.should_move_down and (self.y + self.rect.height) < display_info.current_h):
             self.y += 10
         ##cannot go up and down at the same time
         ##but can go left/right AND down/up at the same time
         ##so use 2 different if statements
-        if(self.should_move_left):
+        if(self.should_move_left and self.x > 0):
             self.x -= 10
-        elif(self.should_move_right):
+        elif(self.should_move_right and (self.x + self.rect.width) < display_info.current_w):
             self.x += 10
+        #the tick is updated everytime through the game loop
+        #that is A LOT. We can use it to do "time things"
         if(tick % 5 == 0):
+            #anim_image only changes every 5 ticks
             self.anim_image += 1
             if(self.anim_image == 10):
+                #we only have 0-9 images, so 10 is too far
                 self.anim_image = 0
+        #image_types is a dictionary of all possible image_types
+        #image_type is a particular image_type such as run, idle, or attack
+        #anim_image is a particular image of a particular image_type
         cur_image = self.image_types[self.image_type][self.anim_image]
         if(self.should_move_left):
             #the player is moving left... flip image
@@ -63,9 +70,13 @@ class Player():
         #blit draws the player
         screen.blit(cur_image,(self.x,self.y))
     def should_move(self, direction, move_or_not):
+        #if the user is running, i.e. move_or_not is true
+        #we want to set the image_type to run
         if(move_or_not):
             self.image_type = "Run"
         else:
+            #if move_or_not is false then the user has
+            #let go of an arrow key, and he should idle
             self.image_type = "Idle"
         if(direction == "up"):
             self.should_move_up = move_or_not
