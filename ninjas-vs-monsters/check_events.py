@@ -19,21 +19,29 @@ def check_events(player):
                 print("User hit the down arrow")
                 # move the player object in the 
                 # positive y direction
-                player.y += 10
+                # player.y += 10
+                player.should_move("down",True)
             elif(event.key == pygame.K_UP):
                 # The user pressed the up arrow!
-                print("User hit the up arrow")
-                # we want to move the player y position negative
-                player.y -= 10
+                player.should_move("up",True)
             elif(event.key == pygame.K_RIGHT):
-                # The user pressed the up arrow!
-                print("User hit the right arrow")
-                player.x += 10
+                # The user pressed the right arrow!
+                player.should_move("right",True)
             elif(event.key == pygame.K_LEFT):
-                # The user pressed the up arrow!  
-                print("User hit the left arrow")   
-                player.x -= 10   
+                # The user pressed the left arrow!  
+                player.should_move("left",True)
             player.anim_image += 1
             if(player.anim_image == 10):
                 player.anim_image = 0
+        elif(event.type == pygame.KEYUP):
+            #user released a key... what key is it?
+            if(event.key == pygame.K_DOWN):
+                #the down arrow!
+                player.should_move("down",False)
+            elif(event.key == pygame.K_UP):
+                player.should_move("up",False)
+            elif(event.key == pygame.K_LEFT):
+                player.should_move("left",False)
+            elif(event.key == pygame.K_RIGHT):
+                player.should_move("right",False)                                
     return event_data
