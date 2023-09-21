@@ -1,8 +1,12 @@
 import pygame
 from image_load import monster_image_load
+from pygame.sprite import Sprite
 
-class Monster():
+#monster is now a sub class of Sprite
+class Monster(Sprite):
     def __init__(self):
+        #run the constructor method for the Sprite (super class)
+        super().__init__()
         self.x = 1000
         self.y = 200
         self.anim_image = 0

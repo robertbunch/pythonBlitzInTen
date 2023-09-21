@@ -15,17 +15,23 @@ screen = pygame.display.set_mode(screen_size)
 game_on = True #a boolean for our game loop
 background = Background(screen, screen_size)
 player = Player(screen)
-troll = Monster()
+# troll = Monster()
+#a Group is a list-like thing in pygame
+#it holds Sprites
+monsters = pygame.sprite.Group() 
 tick = 0
 #this is the main game loop... run until quit
 while(game_on):
     tick += 1
+    if(tick % 30 == 0):
+        #every 30 ticks add a monster
+        monsters.add(Monster())
     #run check_events where we have moved all our event logic
     #check_events returns a dictionary, with a "game_on" key
     event_data = check_events(player,tick)
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
-    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, troll = troll)
+    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF
