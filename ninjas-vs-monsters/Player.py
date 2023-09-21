@@ -7,14 +7,22 @@ class Player():
         self.y = 200
         # anim_image is the number cooresponding to the number in the filename of the that image
         self.anim_image = 0
+        self.image_type = "Idle"
         self.should_move_up = False
         self.should_move_down = False
         self.should_move_left = False
         self.should_move_right = False
 
         self.image_types = {
+            "Attack" : [],
+            "Dead" : [],
             "Idle" : [],
+            "Jump" : [],
+            "Jump_Attack" : [],
+            "Jump_Throw" : [],
             "Run" : [],
+            "Slide" : [],
+            "Throw" : [],
         }
 
         for image_type in self.image_types:
@@ -22,13 +30,14 @@ class Player():
                 image_to_load = pygame.image.load(f"./images/ninja/{image_type}__00{i}.png")
                 image_to_load = pygame.transform.scale_by(image_to_load,.35)
                 self.image_types[image_type].append(image_to_load)
-        print(self.image_types)
+        # print(self.image_types)
         #load the image from the hd
         self.image = pygame.image.load("./images/ninja/Idle__000.png")
         self.image = pygame.transform.scale_by(self.image,.35)
         #get the coords of the image
         self.rect = self.image.get_rect() 
-    def draw_player(self,screen):
+    def draw_player(self,screen,tick):
+        # print(tick)
         #when we draw the player, we can decide
         #where the player should be
         if(self.should_move_up):
@@ -41,10 +50,23 @@ class Player():
         if(self.should_move_left):
             self.x -= 10
         elif(self.should_move_right):
-            self.x += 10            
+            self.x += 10
+        if(tick % 5 == 0):
+            self.anim_image += 1
+            if(self.anim_image == 10):
+                self.anim_image = 0
+        cur_image = self.image_types[self.image_type][self.anim_image]
+        if(self.should_move_left):
+            #the player is moving left... flip image
+            #only time we flip
+            cur_image = pygame.transform.flip(cur_image,True,False)
         #blit draws the player
-        screen.blit(self.image_types["Run"][self.anim_image],(self.x,self.y))
+        screen.blit(cur_image,(self.x,self.y))
     def should_move(self, direction, move_or_not):
+        if(move_or_not):
+            self.image_type = "Run"
+        else:
+            self.image_type = "Idle"
         if(direction == "up"):
             self.should_move_up = move_or_not
         elif(direction == "down"):
