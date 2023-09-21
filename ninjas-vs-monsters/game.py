@@ -3,6 +3,7 @@ from update_screen import update_screen
 from Background import Background
 from Player import Player
 from check_events import check_events
+from Monster import Monster
 
 clock = pygame.time.Clock()
 # print("Pygame successfully imported!")
@@ -14,6 +15,7 @@ screen = pygame.display.set_mode(screen_size)
 game_on = True #a boolean for our game loop
 background = Background(screen, screen_size)
 player = Player(screen)
+troll = Monster()
 tick = 0
 #this is the main game loop... run until quit
 while(game_on):
@@ -24,6 +26,6 @@ while(game_on):
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
-    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info)
+    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, troll = troll)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF

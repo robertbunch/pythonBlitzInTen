@@ -1,4 +1,6 @@
 import pygame
+from image_load import player_image_load
+
 #images from https://opengameart.org/content/ninja-adventure-free-sprite
 class Player():
     def __init__(self,screen):
@@ -13,24 +15,8 @@ class Player():
         self.should_move_down = False
         self.should_move_left = False
         self.should_move_right = False
-
-        self.image_types = {
-            "Attack" : [],
-            "Dead" : [],
-            "Idle" : [],
-            "Jump" : [],
-            "Jump_Attack" : [],
-            "Jump_Throw" : [],
-            "Run" : [],
-            "Slide" : [],
-            "Throw" : [],
-        }
-
-        for image_type in self.image_types:
-            for i in range(0,10):
-                image_to_load = pygame.image.load(f"./images/ninja/{image_type}__00{i}.png")
-                image_to_load = pygame.transform.scale_by(image_to_load,.35)
-                self.image_types[image_type].append(image_to_load)
+        self.image_types =  player_image_load()
+        
         # print(self.image_types)
         #load the image from the hd
         self.image = pygame.image.load("./images/ninja/Idle__000.png")
