@@ -8,6 +8,7 @@ class Player():
         # anim_image is the number cooresponding to the number in the filename of the that image
         self.anim_image = 0
         self.image_type = "Idle"
+        self.stop_attacking_at = False
         self.should_move_up = False
         self.should_move_down = False
         self.should_move_left = False
@@ -59,6 +60,9 @@ class Player():
             if(self.anim_image == 10):
                 #we only have 0-9 images, so 10 is too far
                 self.anim_image = 0
+        #check to see if the player is attacking, AND it's time to stop
+        if(self.image_type == "Attack" and tick > self.stop_attacking_at):
+            self.image_type = "Idle" #the attack is done. Go into idle
         #image_types is a dictionary of all possible image_types
         #image_type is a particular image_type such as run, idle, or attack
         #anim_image is a particular image of a particular image_type
@@ -72,6 +76,10 @@ class Player():
     def should_move(self, direction, move_or_not):
         #if the user is running, i.e. move_or_not is true
         #we want to set the image_type to run
+        #BUT ONLY if the player is not in the middle of an attack
+        if(self.image_type == "Attack"):
+            #return will kill the function in its tracks
+            return
         if(move_or_not):
             self.image_type = "Run"
         else:
@@ -86,4 +94,17 @@ class Player():
             self.should_move_left = move_or_not
         elif(direction == "right"):
             self.should_move_right = move_or_not
-        
+    def attack(self,tick):
+        #All things attack happen here... like, did we hit something?
+        #set the image_type
+        self.image_type = "Attack"
+        #reset the animation_image to 0 because we want to start from the beginning
+        self.anim_image = 0
+        #how long does it take for an animation to complete?
+        #we have 10 images. Each image lasts for 5 ticks
+        #that means lock the player for 50 ticks
+        self.stop_attacking_at = tick + 50
+    def dead(self):
+        self.image_type = "Dead"
+    def jump(self):
+        self.image_type = "Jump"

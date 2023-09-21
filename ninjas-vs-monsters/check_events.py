@@ -1,6 +1,6 @@
 import pygame
 
-def check_events(player):
+def check_events(player,tick):
     #check to see if if any events occured since
     #the last time through the game loop
     #call the event we are on (out of possibly many)
@@ -30,9 +30,18 @@ def check_events(player):
             elif(event.key == pygame.K_LEFT):
                 # The user pressed the left arrow!  
                 player.should_move("left",True)
-            player.anim_image += 1
-            if(player.anim_image == 10):
-                player.anim_image = 0
+            elif(event.key == pygame.K_SPACE):
+                #player hit the space bar... ATTACK!
+                #it's not check_events job to mess with the player
+                #that's the player's job. check_events lets the 
+                #player know what happened
+                player.attack(tick)
+            elif(event.key == pygame.K_d):
+                #if "d" key is pressed, run dead animation
+                player.dead()    
+            elif(event.key == pygame.K_j):
+                #if "d" key is pressed, run jump animation
+                player.jump()                    
         elif(event.type == pygame.KEYUP):
             #user released a key... what key is it?
             if(event.key == pygame.K_DOWN):
