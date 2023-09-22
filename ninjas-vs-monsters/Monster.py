@@ -4,22 +4,24 @@ from pygame.sprite import Sprite
 
 #monster is now a sub class of Sprite
 class Monster(Sprite):
-    def __init__(self):
+    def __init__(self,random_monster):
         #run the constructor method for the Sprite (super class)
         super().__init__()
         self.x = 1000
-        self.y = 200
+        # self.y = 200
         self.anim_image = 0
         self.image_type = "WALK"
         self.stop_attacking_at = False
         self.is_attacking = False
         self.should_move = True
-        starter_image = Monster.image_types[self.image_type][self.anim_image]
+        self.image_types = random_monster['images']
+        starter_image = self.image_types[self.image_type][self.anim_image]
         self.rect = starter_image.get_rect() 
         self.rect.x = self.x #init the rect at the correct image position
+        self.rect.y = self.y
 
     def draw_monster(self, screen, tick):
-        cur_image = Monster.image_types[self.image_type][self.anim_image]
+        cur_image = self.image_types[self.image_type][self.anim_image]
         if(self.should_move):
             #the monster only moves left... flip image
             #only time we flip

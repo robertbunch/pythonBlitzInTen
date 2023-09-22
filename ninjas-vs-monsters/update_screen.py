@@ -14,7 +14,7 @@ def update_screen(screen,player,background,tick,display_info,monsters):
     #retrun value is all sprites in teh group that were collided with 
     hit_monsters = spritecollide(player,monsters,False)
     for monster in hit_monsters:
-        print("monster collided with!")
+        # print("monster collided with!")
         #stop the troll from moving
         #start attacking animation
         #take and cause damage

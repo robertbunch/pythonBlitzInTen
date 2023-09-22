@@ -3,7 +3,8 @@ from update_screen import update_screen
 from Background import Background
 from Player import Player
 from check_events import check_events
-from Monster import Monster
+# from Monster import Monster
+from Troll import Troll
 
 clock = pygame.time.Clock()
 # print("Pygame successfully imported!")
@@ -20,13 +21,13 @@ player = Player(screen)
 #it holds Sprites
 monsters = pygame.sprite.Group() 
 tick = 0
-monsters.add(Monster()) #start the game with a monster
+monsters.add(Troll(display_info)) #start the game with a monster
 #this is the main game loop... run until quit
 while(game_on):
     tick += 1
-    if(tick % 1000 == 0):
+    if(tick % 100 == 0):
         #every 1000 ticks add a monster
-        monsters.add(Monster())
+        monsters.add(Troll(display_info))
     #run check_events where we have moved all our event logic
     #check_events returns a dictionary, with a "game_on" key
     event_data = check_events(player,tick)
