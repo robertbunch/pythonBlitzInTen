@@ -1,9 +1,11 @@
 import pygame
 from image_load import player_image_load
+from pygame.sprite import Sprite
 
 #images from https://opengameart.org/content/ninja-adventure-free-sprite
-class Player():
+class Player(Sprite):
     def __init__(self,screen):
+        super().__init__() #call the Sprite super class constructor
         self.screen = screen
         self.x = 200
         self.y = 200
@@ -23,6 +25,7 @@ class Player():
         self.image = pygame.transform.scale_by(self.image,.35)
         #get the coords of the image
         self.rect = self.image.get_rect() 
+        # print(self.rect)
     def draw_player(self,screen,tick,display_info):
         # print(tick)
         #when we draw the player, we can decide
@@ -57,6 +60,10 @@ class Player():
             #the player is moving left... flip image
             #only time we flip
             cur_image = pygame.transform.flip(cur_image,True,False)
+        #update the player rect based on self.x and self.y
+        #we use self.x and self.y because it's simple numbers which are really, really fast
+        self.rect.x = self.x
+        self.rect.y = self.y
         #blit draws the player
         screen.blit(cur_image,(self.x,self.y))
     def should_move(self, direction, move_or_not):
