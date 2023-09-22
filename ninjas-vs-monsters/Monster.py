@@ -4,6 +4,15 @@ from pygame.sprite import Sprite
 
 #monster is now a sub class of Sprite
 class Monster(Sprite):
+
+    #Any variable defined IN a class, but NOT in 
+    #a method, is a class variable. This is in contrast
+    #with an instance variable. An instance variable
+    #belongs specifically to an object. A class varaible
+    #all objects of that class SHARE.
+    #instance variables use self (in the class)
+    image_types = monster_image_load("1_TROLL") #CLASS VARIABLE
+
     def __init__(self):
         #run the constructor method for the Sprite (super class)
         super().__init__()
@@ -15,10 +24,8 @@ class Monster(Sprite):
         self.is_attacking = False
         self.should_move = True
 
-        self.image_types = monster_image_load("1_TROLL")
-
     def draw_monster(self, screen, tick):
-        cur_image = self.image_types[self.image_type][self.anim_image]
+        cur_image = Monster.image_types[self.image_type][self.anim_image]
         if(self.should_move):
             #the monster only moves left... flip image
             #only time we flip
