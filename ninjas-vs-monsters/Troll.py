@@ -12,9 +12,9 @@ class Troll(Monster):
     #all objects of that class SHARE.
     #instance variables use self (in the class)
     troll_images = {
-        "troll1": monster_image_load("1_TROLL"), #CLASS VARIABLE
-        "troll2": monster_image_load("2_TROLL"),
-        "troll3": monster_image_load("3_TROLL"),
+        "troll1": monster_image_load("1_TROLL","troll"), #CLASS VARIABLE
+        "troll2": monster_image_load("2_TROLL","troll"),
+        "troll3": monster_image_load("3_TROLL","troll"),
     }
 
     def __init__(self):

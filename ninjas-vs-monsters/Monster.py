@@ -19,13 +19,16 @@ class Monster(Sprite):
         self.rect = starter_image.get_rect() 
         self.rect.x = self.x #init the rect at the correct image position
         self.rect.y = self.y
+        self.speed = random_monster['speed']
+        self.hp = random_monster['hp']
+        self.attack = random_monster['attack']
 
     def draw_monster(self, screen, tick):
         cur_image = self.image_types[self.image_type][self.anim_image]
         if(self.should_move):
             #the monster only moves left... flip image
             #only time we flip
-            self.x -= 3
+            self.x -= self.speed
         cur_image = pygame.transform.flip(cur_image,True,False)
         if(tick % 5 == 0):
             #anim_image only changes every 5 ticks

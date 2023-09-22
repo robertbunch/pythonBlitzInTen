@@ -20,7 +20,7 @@ def player_image_load():
             image_types[image_type].append(image_to_load)
     return image_types
 
-def monster_image_load(monster_name):
+def monster_image_load(monster_name,type):
     image_types = {
         "ATTAK" : [],
         "DIE" : [],
@@ -33,6 +33,9 @@ def monster_image_load(monster_name):
     for image_type in image_types:
         for i in range(0,7):
             image_to_load = pygame.image.load(f"./images/{monster_name}/{image_type}/{image_type}_00{i}.png")
-            image_to_load = pygame.transform.scale_by(image_to_load,.35)
+            factor_to_scale_by = .35
+            if(type == "ork"):
+                factor_to_scale_by = .2
+            image_to_load = pygame.transform.scale_by(image_to_load,factor_to_scale_by)
             image_types[image_type].append(image_to_load)
     return image_types

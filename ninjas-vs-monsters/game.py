@@ -5,6 +5,8 @@ from Player import Player
 from check_events import check_events
 # from Monster import Monster
 from Troll import Troll
+from Ork import Ork
+import random 
 
 clock = pygame.time.Clock()
 # print("Pygame successfully imported!")
@@ -21,13 +23,21 @@ player = Player(screen)
 #it holds Sprites
 monsters = pygame.sprite.Group() 
 tick = 0
-monsters.add(Troll()) #start the game with a monster
+random_number = random.randint(0,1)
+if(random_number == 0):
+    monsters.add(Troll()) #start the game with a monster
+else:
+    monsters.add(Ork()) #start the game with a monster
 #this is the main game loop... run until quit
 while(game_on):
     tick += 1
-    if(tick % 100 == 0):
+    if(tick % 500 == 0):
+        random_number = random.randint(0,1)
         #every 1000 ticks add a monster
-        monsters.add(Troll())
+        if(random_number == 0):
+            monsters.add(Troll())
+        else:
+            monsters.add(Ork())
     #run check_events where we have moved all our event logic
     #check_events returns a dictionary, with a "game_on" key
     event_data = check_events(player,tick)
