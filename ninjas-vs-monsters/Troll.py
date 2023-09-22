@@ -17,8 +17,10 @@ class Troll(Monster):
         "troll3": monster_image_load("3_TROLL"),
     }
 
-    def __init__(self,display_info):
-        self.y = random.randint(50,display_info.current_h - 200)
+    def __init__(self):
+        display_info = pygame.display.Info()
+        self.y = random.randint(50,display_info.current_h - 250)
+        self.x = display_info.current_w - 50
 
         troll_stats = [{
             "hp" : 10,

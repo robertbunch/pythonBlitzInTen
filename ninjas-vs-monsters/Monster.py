@@ -7,7 +7,7 @@ class Monster(Sprite):
     def __init__(self,random_monster):
         #run the constructor method for the Sprite (super class)
         super().__init__()
-        self.x = 1000
+        # self.x = 1000
         # self.y = 200
         self.anim_image = 0
         self.image_type = "WALK"

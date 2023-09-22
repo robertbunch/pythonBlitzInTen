@@ -21,13 +21,13 @@ player = Player(screen)
 #it holds Sprites
 monsters = pygame.sprite.Group() 
 tick = 0
-monsters.add(Troll(display_info)) #start the game with a monster
+monsters.add(Troll()) #start the game with a monster
 #this is the main game loop... run until quit
 while(game_on):
     tick += 1
     if(tick % 100 == 0):
         #every 1000 ticks add a monster
-        monsters.add(Troll(display_info))
+        monsters.add(Troll())
     #run check_events where we have moved all our event logic
     #check_events returns a dictionary, with a "game_on" key
     event_data = check_events(player,tick)
