@@ -3,6 +3,7 @@
 - [ninja girl - https://opengameart.org/content/ninja-girl-free-sprite](https://opengameart.org/content/ninja-girl-free-sprite)
 - [trolls - https://opengameart.org/content/2d-game-trolls-sprite](https://opengameart.org/content/2d-game-trolls-sprite)
 - [orcs - https://opengameart.org/content/2d-game-orcs-sprite](https://opengameart.org/content/2d-game-orcs-sprite)
+- [treasure - https://opengameart.org/content/golden-treasures](https://opengameart.org/content/golden-treasures)
 - [zombie - https://opengameart.org/content/zombie-punk-character-sprite](https://opengameart.org/content/zombie-punk-character-sprite)
 - [shiny items - https://opengameart.org/content/shining-coin-shining-health-shining-power-up-sprite-sheets](https://opengameart.org/content/shining-coin-shining-health-shining-power-up-sprite-sheets)
 - [more zombies - https://opengameart.org/content/zombie-character-sprite](https://opengameart.org/content/zombie-character-sprite)
