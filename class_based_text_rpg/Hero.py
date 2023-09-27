@@ -19,8 +19,8 @@ class Hero(Character):
         #the hero won, so grant the hero some gold and xp
         self.gold += vanquished_foe.gold_drop
         self.xp += vanquished_foe.xp_drop
-        print(f"Thou has gained {vanquished_foe.gold_drop} gold and {vanquished_foe.xp_drop} experience.")
-        print(f"Thou now hasts total of {self.gold} gold and {self.xp} experience.")
+        print(f"Thou has gained {self.game_settings.colors['yellow']}{vanquished_foe.gold_drop} gold{self.game_settings.colors['normal']} and {self.game_settings.colors['green']}{vanquished_foe.xp_drop} experience{self.game_settings.colors['normal']}.")
+        print(f"Thou now hasts {self.game_settings.colors['white']}total{self.game_settings.colors['normal']} of {self.game_settings.colors['yellow']}{self.gold} gold {self.game_settings.colors['normal']}and {self.game_settings.colors['green']}{self.xp} experience{self.game_settings.colors['normal']}.")
         #check to see if the hero has made a new level
         new_level_data = self.game_settings.levels[self.level + 1]
         if(self.xp >= new_level_data["threshold"]):

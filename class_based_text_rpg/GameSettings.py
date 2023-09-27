@@ -47,7 +47,7 @@ class GameSettings():
             #Colors for Python terminal
             "red" :  "\033[1;31;40m",
             "redB" :  "\033[0;31;47m",
-            "white" :  "\033[0;37;40m",
+            "white" :  "\033[1;37;40m",
             "blue" :  "\033[1;34;40m",
             "blueB" :  "\033[0;34;47m",
             "yellow" :  "\033[1;33;40m",

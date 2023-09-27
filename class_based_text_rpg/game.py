@@ -23,7 +23,7 @@ while(game_on):
     action = input(" > ") #this will BLOCK the loop, until the user answer
     if(action == "1"):
         #call the battle engine
-        battle_engine(the_hero)
+        battle_engine(the_hero,game_settings)
         if(the_hero.hp <= 0):
             print(f"All hope is lost...")
             game_on = False

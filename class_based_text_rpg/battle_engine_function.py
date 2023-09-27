@@ -8,7 +8,7 @@ from Zombie import Zombie
 from Goblin import Goblin
 
 #if the player decides to fight, this function will run
-def battle_engine(the_hero):
+def battle_engine(the_hero,game_settings):
     #inside of battle_engine, make some enemies
     troll = Troll()
     goblin = Goblin()
@@ -23,7 +23,7 @@ def battle_engine(the_hero):
     # os.system('cls') #this is for windows
     os.system('clear') #this is for Mac
     #time.sleep(x) will force the program to stop for x seconds
-    print(f"Thou hast entered the forest. Danger creeps everywhere...")
+    print(f"{game_settings.colors['red']}Thou hast entered the forest. Danger creeps everywhere...{game_settings.colors['normal']}")
     time.sleep(2) #pause for 2 seconds
 
     # os.system("say Hooray, Hero!")
@@ -38,7 +38,7 @@ def battle_engine(the_hero):
     #we need to use the copy method, so that we don't change the original
     enemy_to_fight = enemies[random_index]
     in_fight = True #boolean that keeps us in the fight loop
-    print(f"{the_hero.character_name}, thou hast encountered the {enemy_to_fight.character_name}. The battle has begun!")
+    print(f"{the_hero.character_name}, thou hast encountered the {game_settings.colors['blue']}{enemy_to_fight.character_name}{game_settings.colors['normal']}. The battle has begun!")
     while(in_fight):
         print(f"Thou hast {the_hero.hp} health points. Thine enemy has {enemy_to_fight.hp} health points.")
         #this loop is the back and forth during a battle. Until someone wins
