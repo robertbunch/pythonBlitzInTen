@@ -18,14 +18,14 @@ def update_screen(screen,player,background,tick,display_info,monsters):
         #stop the monster from moving
         #start attacking/hurt/die animation
         #take and cause damage
-        if(monster.image_type != "ATTAK"):
+        if(monster.image_type == "WALK"):
             #only run stop_and_attack if teh monster is NOT attacking already
             monster.stop_and_attack()
         elif(player.image_type == "Attack" and player.anim_image == 0 and tick % 5 == 0):
             #the player is attacking and the monster is colliding. 
             # Take damage! But only if the player is on the first animation
             #and the first animation is on the first tick
-            print("Player has hit the monster")
+            monster.take_damage(player)
     #for all the monsters that WERE attacking, but are 
     #no longer colliding, we need to start them up again
     for monster in monsters:

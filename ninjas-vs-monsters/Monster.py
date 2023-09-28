@@ -60,3 +60,19 @@ class Monster(Sprite):
         self.should_move = True
         self.image_type = "WALK"
         self.anim_image = 0
+
+    def take_damage(self, player):
+        #reduce monster health
+        self.hp -= player.attack_power
+        #check how much health monster has left
+        if(self.hp <= 0):
+            self.image_type = "DIE"
+            self.anim_image = 0 #reset anim image to 0
+            #0, change animation to dead
+            #0, remove him from the group
+            #0, player kill_counter += 1
+        else:
+            #monster has at least 1 health
+            #1+, animate goes to hurt
+            self.image_type = "HURT"
+            self.anim_image = 0 #reset anim image to 0

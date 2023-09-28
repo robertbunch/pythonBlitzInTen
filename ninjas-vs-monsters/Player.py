@@ -9,6 +9,7 @@ class Player(Sprite):
         self.screen = screen
         self.x = 200
         self.y = 200
+        self.attack_power = 5
         # anim_image is the number cooresponding to the number in the filename of the that image
         self.anim_image = 0
         self.image_type = "Idle"
