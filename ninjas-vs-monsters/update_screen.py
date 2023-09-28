@@ -26,10 +26,17 @@ def update_screen(screen,player,background,tick,display_info,monsters):
             # Take damage! But only if the player is on the first animation
             #and the first animation is on the first tick
             monster.take_damage(player)
-    #for all the monsters that WERE attacking, but are 
-    #no longer colliding, we need to start them up again
+    #second loop, handles animations
     for monster in monsters:
-        if(monster.image_type == "ATTAK" and monster not in hit_monsters):
+        if(monster.image_type == "DIE" and monster.anim_image == 6):
+            #monster is done with teh game :) remove him
+            monsters.remove(monster) #remove from spriteGroup
+        elif(monster.image_type == "HURT" and monster.anim_image == 6):
+            #monster is done being hurt. Move back to attack
+            monster.stop_and_attack()
+        elif(monster.image_type == "ATTAK" and monster not in hit_monsters):
+            #for all the monsters that WERE attacking, but are 
+            #no longer colliding, we need to start them up again
             #this monster is a NON collided with monster
             #and this monster IS attacking
             #We need to start him moving again
