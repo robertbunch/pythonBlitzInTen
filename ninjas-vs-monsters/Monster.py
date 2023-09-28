@@ -25,6 +25,7 @@ class Monster(Sprite):
 
     def draw_monster(self, screen, tick):
         cur_image = self.image_types[self.image_type][self.anim_image]
+        cur_image_height = cur_image.get_height()
         if(self.should_move):
             #the monster only moves left... flip image
             #only time we flip
@@ -38,8 +39,11 @@ class Monster(Sprite):
                 self.anim_image = 0
         #update the x on teh rect of the monster, to self.x
         self.rect.x = self.x
+        # self.rect.y is what pygame uses to determine where to collide
+        #self.y is where we manage his location, blit we can send either
+        self.rect.y = self.y - cur_image_height
         #blit draws the monster
-        screen.blit(cur_image,(self.x,self.y))
+        screen.blit(cur_image,(self.x,self.rect.y))
 
     def stop_and_attack(self):
         #set our bool to True
