@@ -7,13 +7,14 @@ from check_events import check_events
 from Troll import Troll
 from Ork import Ork
 import random 
+from Treasure import Treasure
 
 clock = pygame.time.Clock()
 # print("Pygame successfully imported!")
 pygame.init() #initialize all the pygame stuff
 #get the display info... Info is a class!
 display_info = pygame.display.Info()
-screen_size = (display_info.current_w, display_info.current_h)
+screen_size = (1920, 1080)
 screen = pygame.display.set_mode(screen_size)
 game_on = True #a boolean for our game loop
 background = Background(screen, screen_size)
@@ -22,6 +23,8 @@ player = Player(screen)
 #a Group is a list-like thing in pygame
 #it holds Sprites
 monsters = pygame.sprite.Group() 
+treasures = pygame.sprite.Group()
+treasures.add(Treasure())
 tick = 0
 random_number = random.randint(0,1)
 if(random_number == 0):
@@ -44,6 +47,6 @@ while(game_on):
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
-    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters)
+    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters, treasures=treasures)
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF

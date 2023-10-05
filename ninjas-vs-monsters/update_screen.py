@@ -3,7 +3,7 @@ from pygame.sprite import spritecollide
 #this function is in charge of updating stuff
 #on the screen
 
-def update_screen(screen,player,background,tick,display_info,monsters):
+def update_screen(screen,player,background,tick,display_info,monsters,treasures):
     background.draw_bg(screen)
 
     #collision detection!
@@ -44,4 +44,6 @@ def update_screen(screen,player,background,tick,display_info,monsters):
     player.draw_player(screen,tick,display_info)
     for monster in monsters:
         monster.draw_monster(screen, tick)
+    for treasure in treasures:
+        treasure.draw_me(screen)
     return
