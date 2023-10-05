@@ -41,9 +41,9 @@ def update_screen(screen,player,background,tick,display_info,monsters,treasures)
             #and this monster IS attacking
             #We need to start him moving again
             monster.move_on()
-    player.draw_player(screen,tick,display_info)
     for monster in monsters:
         monster.draw_monster(screen, tick)
     for treasure in treasures:
         treasure.draw_me(screen)
+    player.draw_player(screen,tick,display_info)
     return
