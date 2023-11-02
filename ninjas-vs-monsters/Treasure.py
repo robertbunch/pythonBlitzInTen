@@ -7,12 +7,12 @@ class Treasure(pygame.sprite.Sprite):
     treasure_pile = pygame.transform.scale_by(treasure_pile,.3)
     treasure_vase = pygame.transform.scale_by(treasure_vase,.3)
     treasures = [treasure_pile,treasure_vase]
-    def __init__(self):
+    def __init__(self,display_info):
         random_treasure = Treasure.treasures[random.randint(0,1)]
         self.image = random_treasure
         self.rect = self.image.get_rect()
         self.x = 200
-        self.y = 500
+        self.y = random.randint(100,display_info.current_h - 100)
         self.rect.x = self.x #self.rect is for pygame, self.x is for us
         self.rect.y = self.y
 

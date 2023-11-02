@@ -24,7 +24,7 @@ player = Player(screen)
 #it holds Sprites
 monsters = pygame.sprite.Group() 
 treasures = pygame.sprite.Group()
-treasures.add(Treasure())
+treasures.add(Treasure(display_info),Treasure(display_info),Treasure(display_info),Treasure(display_info),Treasure(display_info))
 tick = 0
 random_number = random.randint(0,1)
 if(random_number == 0):

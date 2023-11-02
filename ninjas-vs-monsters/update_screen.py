@@ -1,4 +1,5 @@
 from pygame.sprite import spritecollide
+from pygame.sprite import groupcollide
 
 #this function is in charge of updating stuff
 #on the screen
@@ -41,6 +42,10 @@ def update_screen(screen,player,background,tick,display_info,monsters,treasures)
             #and this monster IS attacking
             #We need to start him moving again
             monster.move_on()
+    treasure_hit = groupcollide(treasures,monsters,True,False)
+    if(treasure_hit):
+        # some treasure was hit!
+        print("A treasure was taken!")
     for monster in monsters:
         monster.draw_monster(screen, tick)
     for treasure in treasures:
