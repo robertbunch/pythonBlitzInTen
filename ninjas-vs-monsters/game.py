@@ -17,6 +17,7 @@ display_info = pygame.display.Info()
 screen_size = (1920, 1080)
 screen = pygame.display.set_mode(screen_size)
 game_on = True #a boolean for our game loop
+game_over_screen = False #boolean for game_over loop
 background = Background(screen, screen_size)
 player = Player(screen)
 # troll = Monster()
@@ -47,6 +48,16 @@ while(game_on):
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
-    update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters, treasures=treasures)
+    is_game_over = update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters, treasures=treasures)
+    if(is_game_over):
+        game_on = False
+        game_over_screen = True
     clock.tick(60) #the number is the fps (frame per second)
     pygame.display.flip() #DRAW OUR STUFF
+
+# another "game" loop
+while(game_over_screen):
+    for event in pygame.event.get():
+        if(event.type == pygame.QUIT):
+            game_over_screen = False #this gives Python a way out    
+    pygame.display.flip()

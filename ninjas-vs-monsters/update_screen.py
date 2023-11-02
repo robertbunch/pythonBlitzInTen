@@ -45,7 +45,8 @@ def update_screen(screen,player,background,tick,display_info,monsters,treasures)
     treasure_hit = groupcollide(treasures,monsters,True,False)
     if(treasure_hit):
         # some treasure was hit!
-        print("A treasure was taken!")
+        # print("A treasure was taken!")
+        return True #let game.py know that the game is over
     for monster in monsters:
         monster.draw_monster(screen, tick)
     for treasure in treasures:
