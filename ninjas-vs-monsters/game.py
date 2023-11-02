@@ -20,6 +20,18 @@ screen = pygame.display.set_mode(screen_size)
 game_on = True #a boolean for our game loop
 game_over_screen = False #boolean for game_over loop
 background = Background(screen, screen_size)
+player_score_button = GameButton(
+    screen = screen,
+    button_text = "Monsters Taken Down: 0",
+    text_color = (255,255,255),
+    background_color = None,
+    location_x = 75,
+    location_y = 25,
+    button_height = 100,
+    button_width = 200,
+    font_size = 24,
+    center_on_screen = False
+)
 player = Player(screen)
 # troll = Monster()
 #a Group is a list-like thing in pygame
@@ -49,7 +61,7 @@ while(game_on):
     game_on = event_data["game_on"]
     # screen.fill("red") #fill changes the color of the screen
     #run update_screen which is where we draw, and update stuff
-    is_game_over = update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters, treasures=treasures)
+    is_game_over = update_screen(screen = screen,player = player, background = background, tick = tick, display_info = display_info, monsters = monsters, treasures=treasures,player_score_button=player_score_button)
     if(is_game_over):
         game_on = False
         game_over_screen = True

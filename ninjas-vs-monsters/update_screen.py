@@ -4,7 +4,7 @@ from pygame.sprite import groupcollide
 #this function is in charge of updating stuff
 #on the screen
 
-def update_screen(screen,player,background,tick,display_info,monsters,treasures):
+def update_screen(screen,player,background,tick,display_info,monsters,treasures,player_score_button):
     background.draw_bg(screen)
 
     #collision detection!
@@ -26,7 +26,7 @@ def update_screen(screen,player,background,tick,display_info,monsters,treasures)
             #the player is attacking and the monster is colliding. 
             # Take damage! But only if the player is on the first animation
             #and the first animation is on the first tick
-            monster.take_damage(player)
+            monster.take_damage(player,player_score_button)
     #second loop, handles animations
     for monster in monsters:
         if(monster.image_type == "DIE" and monster.anim_image == 6):
@@ -51,5 +51,6 @@ def update_screen(screen,player,background,tick,display_info,monsters,treasures)
         monster.draw_monster(screen, tick)
     for treasure in treasures:
         treasure.draw_me(screen)
+    player_score_button.draw_me()
     player.draw_player(screen,tick,display_info)
     return

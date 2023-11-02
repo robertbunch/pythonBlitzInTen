@@ -61,7 +61,7 @@ class Monster(Sprite):
         self.image_type = "WALK"
         self.anim_image = 0
 
-    def take_damage(self, player):
+    def take_damage(self, player,player_score_button):
         #reduce monster health
         self.hp -= player.attack_power
         #check how much health monster has left
@@ -71,6 +71,8 @@ class Monster(Sprite):
             #0, change animation to dead
             #0, remove him from the group
             #0, player kill_counter += 1
+            player.score += 1
+            player_score_button.update_text(f"Monsters Taken Down: {player.score}")
         else:
             #monster has at least 1 health
             #1+, animate goes to hurt

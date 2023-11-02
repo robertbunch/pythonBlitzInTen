@@ -19,6 +19,7 @@ class Player(Sprite):
         self.should_move_left = False
         self.should_move_right = False
         self.image_types =  player_image_load()
+        self.score = 0
         
         # print(self.image_types)
         #load the image from the hd
