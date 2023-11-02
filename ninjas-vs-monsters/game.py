@@ -8,6 +8,7 @@ from Troll import Troll
 from Ork import Ork
 import random 
 from Treasure import Treasure
+from GameButton import GameButton
 
 clock = pygame.time.Clock()
 # print("Pygame successfully imported!")
@@ -56,7 +57,18 @@ while(game_on):
     pygame.display.flip() #DRAW OUR STUFF
 
 # another "game" loop
+game_over_button = GameButton(screen = screen,
+                    button_text = "Game Over!",
+                    text_color = (255,255,255),
+                    background_color = (0,0,0),
+                    location_x = 100,
+                    location_y = 100,
+                    button_height = 100,
+                    button_width = 200,
+                    font_size = 36,
+                    center_on_screen = True)
 while(game_over_screen):
+    game_over_button.draw_me()
     for event in pygame.event.get():
         if(event.type == pygame.QUIT):
             game_over_screen = False #this gives Python a way out    
