@@ -7,7 +7,13 @@ start_time = time.time() #get our starting time
 # Using the rule above and starting with 13, we generate 
 # the following sequence:
 # 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1.
-# answer: 837799
+# 2:1
+# 3:7
+# 4:2
+# 5:5
+# 6:8
+# 7:13
+# 7:22 > 11 > 34 > 17 > 52 > 21 > 64 > 32 > 16 > 8 > 4 > 2 > 1
 
 # It can be seen that this sequence (starting at 
 # and finishing at 13 and ending at 1) contains 
@@ -19,34 +25,46 @@ start_time = time.time() #get our starting time
 # the longest chain?
 
 # NOTE: Once the chain starts the terms are allowed to go 
-# above one million.
+# above one million.    
+# answer: 837799
 
+# init our winners
 top_num = 0
-top_num_chain_length = 0
-calc_numbers = {}
-for i in range(3,1000000,2):
+top_num_chain_count = 0
+known_nums = {}
+for i in range(2,1000000):
+    #i needs to stay in the sequence
+    #cur_num starts at i, then we change it
     cur_num = i
-    odd = True #keep bool so we dont have to % 2
-    cur_num_chain_length = 0
-    print(f"i: {i}")
+    cur_num_chain_count = 0
+    cur_num_chain = []
     while(cur_num > 1):
-        # print(cur_num)
-        if(cur_num in calc_numbers):
-            cur_num_chain_length += calc_numbers[cur_num]
-            cur_num = 0
+        if(cur_num in known_nums):
+            #we have solved this before! Just add the total
+            cur_num_chain_count += known_nums[cur_num]
+            cur_num = 1 #end the while
         else:
-            cur_num_chain_length += 1
             if(cur_num % 2 == 0):
-                cur_num = int(cur_num / 2) #divide by 2
-            else: 
-                cur_num = 3 * cur_num + 1
-    if(cur_num_chain_length > top_num_chain_length):
-        top_num_chain_length = cur_num_chain_length
-        top_num = i
-    calc_numbers[i] = top_num_chain_length
+                #this number is even!
+                cur_num /= 2
+            else:
+                #odd number
+                cur_num = (cur_num * 3) + 1
+            cur_num_chain_count += 1
+            cur_num_chain.append(cur_num)
+    if(cur_num_chain_count > top_num_chain_count):
+        #we have a new winner!
+        top_num = i #not the cur_num, because it will be 1
+        top_num_chain_count = cur_num_chain_count
+    known_nums[i] = cur_num_chain_count
+    # print(cur_num_chain)
+    # for num2 in cur_num_chain:
+        #see if the num2 is in known_nums
+        #if not, then add the length from here
+        #Im not doing this, because it doesn't save time
 print(top_num)
-print(top_num_chain_length)
-        
+print(top_num_chain_count)
+
 end_time = time.time() #get our ending time
 print(f"--- Number of seconds to solve {time.time() - start_time}")
  

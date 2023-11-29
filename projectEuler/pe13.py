@@ -1,7 +1,7 @@
 import time
 start_time = time.time() #get our starting time
 # Work out the first ten digits of the sum of the 
-# following one-hundred 
+# following one-hundred 50-digit numbers
 # Answer: 5537376230
 
 num_string = '''
@@ -106,14 +106,14 @@ num_string = '''
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690'''
 
-parsed_numbers = num_string.strip().split('\n')
-print(parsed_numbers)
+#see problem 11
+parsed_list = num_string.strip().split("\n")
 sum = 0
-for num in parsed_numbers:
+for num in parsed_list:
     sum += int(num)
+# print(sum)
 sum_as_string = str(sum)
 print(sum_as_string[0:10])
-
 
 end_time = time.time() #get our ending time
 print(f"--- Number of seconds to solve {time.time() - start_time}")
