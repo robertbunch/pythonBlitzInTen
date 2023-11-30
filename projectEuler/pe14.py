@@ -13,7 +13,6 @@ start_time = time.time() #get our starting time
 # 5:5
 # 6:8
 # 7:13
-# 7:22 > 11 > 34 > 17 > 52 > 21 > 64 > 32 > 16 > 8 > 4 > 2 > 1
 
 # It can be seen that this sequence (starting at 
 # and finishing at 13 and ending at 1) contains 
@@ -37,7 +36,6 @@ for i in range(2,1000000):
     #cur_num starts at i, then we change it
     cur_num = i
     cur_num_chain_count = 0
-    cur_num_chain = []
     while(cur_num > 1):
         if(cur_num in known_nums):
             #we have solved this before! Just add the total
@@ -51,17 +49,11 @@ for i in range(2,1000000):
                 #odd number
                 cur_num = (cur_num * 3) + 1
             cur_num_chain_count += 1
-            cur_num_chain.append(cur_num)
     if(cur_num_chain_count > top_num_chain_count):
         #we have a new winner!
         top_num = i #not the cur_num, because it will be 1
         top_num_chain_count = cur_num_chain_count
     known_nums[i] = cur_num_chain_count
-    # print(cur_num_chain)
-    # for num2 in cur_num_chain:
-        #see if the num2 is in known_nums
-        #if not, then add the length from here
-        #Im not doing this, because it doesn't save time
 print(top_num)
 print(top_num_chain_count)
 
