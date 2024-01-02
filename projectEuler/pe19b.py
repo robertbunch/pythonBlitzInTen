@@ -28,25 +28,33 @@ def get_num_days(month,year):
     else:
         return months[month]
 
-#0 in index 1 so January can be index 1
+#0 in index 0 so January can be index 1
 months = [0,31,28,31,30,31,30,31,31,30,31,30,31]
 day_of_week = 2 #Sunday = 1, Monday = 2, etc.
 number_of_sundays = 0 #init final answer
+sundays_by_year = {}
 
-#year loop
-for year in range(1900,2001):
+#year loop - we only need to check every 28 years, becaues the calendar repeats
+for year in range(1900,1929):
+    sundays_by_year[year] = 0
     #is this a leap year
     for month in range(1,13):
         num_days_in_month = get_num_days(month, year)
         # print("year: ",year," month: ",month,"-",num_days_in_month)
-        if(day_of_week == 1 and year != 1900):
+        if(day_of_week == 1):
             # this is a sunday! and the first day of this month
-            number_of_sundays += 1
+            sundays_by_year[year] += 1
+            if(year != 1900): number_of_sundays += 1
         for date in range(1,num_days_in_month+1):
             # reset day of week to 1 if we were on 7, others incrament by 1
             day_of_week = 1 if day_of_week == 7 else day_of_week + 1
 
+for year in range(1929,2001):
+    sundays_by_year[year] = sundays_by_year[year - 28]
+    number_of_sundays += sundays_by_year[year]
+
 print(number_of_sundays)
+print(sundays_by_year)
 
 end_time = time.time() #get our ending time
 print(f"--- Number of seconds to solve {time.time() - start_time}")
